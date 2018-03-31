@@ -216,20 +216,24 @@ speed_test_cn(){
 }
 
 speed_cn() {
-
-    speed_test_cn '12637' '襄阳电信'
-    speed_test_cn '3633' '上海电信'
-    speed_test_cn '4624' '成都电信'
-    speed_test_cn '4863' "西安电信"
-    speed_test_cn '5083' '上海联通'
-    speed_test_cn '5726' '重庆联通'
-    speed_test_cn '5192' "西安移动"
-    speed_test_cn '4665' '上海移动'
-    speed_test_cn '4575' '成都移动'
-     
+    speed_test_cn '4751' '北京电信'
+	speed_test_cn '4713' '北京移动'
+	speed_test_cn '5145' '北京联通'
+	speed_test_cn '17019' '上海电信'
+	speed_test_cn '4665' '上海移动'
+	speed_test_cn '5083' '上海联通'
+	speed_test_cn '5081' '深圳电信'
+	speed_test_cn '4515' '深圳移动'
+	speed_test_cn '6611' '广州移动'
+	speed_test_cn '5396' '苏州电信'
+	speed_test_cn '12637' '襄阳电信'
+	# speed_test_cn '4624' '成都电信'
+    # speed_test_cn '4575' '成都移动'
+    # speed_test_cn '4863' '西安电信'
+    # speed_test_cn '5726' '重庆联通'
+    # speed_test_cn '5192' '西安移动'
     rm -rf /tmp/speedtest.py
 }
-
 
 io_test() {
     (LANG=C dd if=/dev/zero of=test_$$ bs=64k count=16k conv=fdatasync && rm -f test_$$ ) 2>&1 | awk -F, '{io=$NF} END { print io}' | sed 's/^[ \t]*//;s/[ \t]*$//'
